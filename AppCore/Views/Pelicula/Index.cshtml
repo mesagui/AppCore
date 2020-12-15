@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Peliculas</h1>
+
+<a href="/Pelicula/Crear/" class="btn btn-dark"> Crear Pelicula</a>
+<br />
+<br />
+<table class="table table-bordered table-hover table-dark">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Año</th>
+            <th>Director</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.CodigoPelicula</td>
+            <td>@item.Nombre</td>
+            <td>@item.Anio</td>
+            <td>@item.Director.Nombre</td>
+        </tr>
+                }
+       
+        </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1>Crear Pelicula</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <form action="/Pelicula/Crear" method="post">
+                <label>Codigo</label>
+                <input class="form-control" name="CodigoPelicula" value="@Model.CodigoPelicula" autofocus />
+                @Html.ValidationMessage("PeliculaCodigo")
+                @Html.ValidationMessage("PeliculaCodigo1")
+                <br />
+                <label>Nombre</label>
+                <input class="form-control" name="Nombre"  value="@Model.Nombre"/>
+                @Html.ValidationMessage("Nombre")
+                <br />
+                <label>Año</label>
+                <input class="form-control" name="Anio"  value="@Model.Anio"/>
+                <br />
+                <label>Director</label>
+                <select class="form-control" name="Nombre" >
+                    <option value="">-- Eliga un Director --</option>
+                    @foreach (var item in ViewBag.Directores)
+                    {
+                        <option value="@item.Id">@item.Nombre</option>
+                        if (item.Id == Model.DirectorId)
+                        {
+                            <option selected value="@item.Id">@item.Nombre</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Nombre</option>
+                        }
+                    }
+                </select>
+
+                @*@Html.ValidationMessage("CategoriaId")*@
+
+
+
+                <button class="btn btn-success">Crear Pelicula</button>
+            </form>
+        </div>
+    </div>
+
+
+    </div>
